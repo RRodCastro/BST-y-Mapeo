@@ -1,0 +1,50 @@
+
+
+
+/**
+ * Integrantes: Rodrigo Castro #14092
+ * Hugo Noriega #14097
+ * Se realiza la implemnetacion del Red Black Tree con la implementacion del WORDSET
+ * 
+ * Consultado en el capitulo 14.5 Splay Tree del Libro JAVA Strucutre
+ */
+
+
+
+public class Splay implements WordSet
+{
+
+
+	private ArbolSplay<Word> nuevoArbol;
+
+	
+	public Splay()
+	{
+		nuevoArbol = new ArbolSplay<Word>();
+		
+	}
+	
+	public void add(Word wordObject) {
+		
+		
+		
+		boolean seEncontro = nuevoArbol.ContieneElNodo(wordObject);
+		if(seEncontro) return;
+		nuevoArbol.put(wordObject);
+	}
+
+	
+	public Word get(Word word) {
+		boolean seEncontro = nuevoArbol.ContieneElNodo(word);
+		
+		if(!seEncontro)
+		
+		
+		{
+			return null;
+		}
+		
+		return nuevoArbol.getRoot().getValue(); // Debido a que el valor buscado llega a la cima del arbol, solo se busca el valor de la raiz.
+	}
+
+}
